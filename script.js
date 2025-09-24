@@ -19,7 +19,7 @@ searchBtn.addEventListener("click", () => {
                             containerPrincipal.innerHTML += 
                             `<p>${dataMovie.Title} ${dataMovie.imdbRating}</p>
                              <p>${dataMovie.Runtime} ${dataMovie.Genre}</p>
-                             <button>add me to the localstorage</button>
+                             <button id="${imdbId}.btn" >add me to the localstorage</button>
                              <p>${dataMovie.Plot}</p>
                              <img src="${dataMovie.Poster}"/>`
                         })
@@ -30,3 +30,6 @@ searchBtn.addEventListener("click", () => {
             }
         })
 })
+document.getElementById("${imdbId}.btn").addEventListener("click", ()=> {
+    containerPrincipal.innerHTML = "OK !"
+} )
