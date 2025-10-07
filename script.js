@@ -2,6 +2,8 @@ const containerPrincipal = document.getElementById("container-principal")
 const searchBtn = document.getElementById("search")
 const movieSearch = document.getElementById("movie-search")
 
+//parse les elements deja stocker ou rien
+
 searchBtn.addEventListener("click", () => {
     // vide le container avant une nouvelle recherche
     containerPrincipal.innerHTML = ""
@@ -19,9 +21,12 @@ searchBtn.addEventListener("click", () => {
                             containerPrincipal.innerHTML += 
                             `<p>${dataMovie.Title} ${dataMovie.imdbRating}</p>
                              <p>${dataMovie.Runtime} ${dataMovie.Genre}</p>
-                             <button id="${imdbId}.btn" >add me to the localstorage</button>
+                             <button id="${imdbId}Btn" >add me to the localstorage</button>
                              <p>${dataMovie.Plot}</p>
                              <img src="${dataMovie.Poster}"/>`
+                             document.getElementById(`${imdbId}Btn`).addEventListener("click", ()=> {
+    window.alert("OK !")
+} )
                         })
                 }
             } else {
@@ -30,6 +35,4 @@ searchBtn.addEventListener("click", () => {
             }
         })
 })
-document.getElementById("${imdbId}.btn").addEventListener("click", ()=> {
-    containerPrincipal.innerHTML = "OK !"
-} )
+
