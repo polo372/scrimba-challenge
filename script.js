@@ -25,7 +25,7 @@ searchBtn.addEventListener("click", () => {
                              <p>${dataMovie.Plot}</p>
                              <img src="${dataMovie.Poster}"/>`
                              document.getElementById(`${imdbId}Btn`).addEventListener("click", ()=> {
-    window.alert("OK !")
+    window.alert(`${imdbId}`)
 } )
                         })
                 }
