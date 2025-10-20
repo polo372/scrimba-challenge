@@ -14,10 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
             )).then(films => {
                 main2.innerHTML = films.map(film =>
                     `<div class="movie-item">
-                        <h2>${film.Title} (${film.Year})</h2>
-                        <img src="${film.Poster}" alt="Poster" style="height:150px;">
-                        <p>${film.Runtime} | ${film.Genre}</p>
-                        <p>${film.Plot}</p>
+                                <img src="${film.Poster}"/>
+                                <p>${film.Title} ${film.imdbRating}</p>
+                                 <p>${film.Runtime} ${film.Genre}</p>
+                                 <p>${film.Plot}</p>
                         <button onclick="removeFromWatchlist('${film.imdbID}')">Remove from Watchlist</button>
                     </div>`
                 ).join("");
@@ -55,14 +55,16 @@ searchBtn.addEventListener("click", () => {
                             // Création d'un élément temporaire pour parser le HTML
                             const tempDiv = document.createElement('div')
                             tempDiv.innerHTML =
-                                `<p>${dataMovie.Title} ${dataMovie.imdbRating}</p>
+                                `<div id="movie-card">
+                                <img src="${dataMovie.Poster}"/>
+                                <p>${dataMovie.Title} ${dataMovie.imdbRating}</p>
                                  <p>${dataMovie.Runtime} ${dataMovie.Genre}</p>
                                  <div class="add-to-watchlist">
                                     <img src='icon_plus_white.png' id="${imdbId}Btn">
                                     <p>add me to the localstorage<p>
                                  </div>
                                  <p>${dataMovie.Plot}</p>
-                                 <img src="${dataMovie.Poster}"/>`
+                                 </div>`
                             // Ajoute le contenu au container principal
                             while (tempDiv.firstChild) {
                                 containerPrincipal.appendChild(tempDiv.firstChild)

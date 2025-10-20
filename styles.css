@@ -102,4 +102,6 @@ main{
     font-size: 20px;
     color: #e50914;
 }
-
+div#movie-card, div#movie-item {
+    display: flex;
+}
